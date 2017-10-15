@@ -86,7 +86,7 @@ class SlimMPSCNNConvolution: MPSCNNConvolution{
         
     }
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(device: aDecoder)
     }
     /**
      Encode a MPSCNNKernel into a command Buffer. The operation shall proceed out-of-place.

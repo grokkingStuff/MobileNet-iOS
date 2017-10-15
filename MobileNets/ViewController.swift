@@ -28,25 +28,25 @@ class ViewController: UIViewController, VideoCaptureDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         root = Database.database().reference()
-        let stuff = [
-            "key":"value",
-            "anotherKey":2
-        ]
-        root.setValue(stuff)
-        
-        let child = root.child("key")
-        child.setValue(stuff)
-        child.setValue([1,2,3,4,6,7])
-        
-        let autoRef = root.childByAutoId()
-        autoRef.setValue("straighStrings")
-        
-        root.observe(.value, with: { snapshot in
-            print(snapshot.value)
-            if let value = snapshot.value(forKeyPath: "key/anotherkey") as? String {
-                // do something with value
-            }
-        })
+//        let stuff = [
+//            "key":"value",
+//            "anotherKey":2
+//        ]
+//        root.setValue(stuff)
+//        
+//        let child = root.child("key")
+//        child.setValue(stuff)
+//        child.setValue([1,2,3,4,6,7])
+//        
+//        let autoRef = root.childByAutoId()
+//        autoRef.setValue("straighStrings")
+//        
+//        root.observe(.value, with: { snapshot in
+//            print(snapshot.value)
+//            if let value = snapshot.value(forKeyPath: "key/anotherkey") as? String {
+//                // do something with value
+//            }
+//        })
         
         device = MTLCreateSystemDefaultDevice()
         

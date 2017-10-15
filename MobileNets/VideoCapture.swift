@@ -2,6 +2,7 @@ import UIKit
 import AVFoundation
 import CoreVideo
 import Metal
+import Firebase
 
 public protocol VideoCaptureDelegate: class {
   func didCapture(texture: MTLTexture?, previewImage: UIImage?)
