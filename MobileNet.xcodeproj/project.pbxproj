@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C5BA7201F9381D00066A8F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C5BA71F1F9381D00066A8F1 /* GoogleService-Info.plist */; };
 		7B0233A41D72041200944BBE /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 7B0233A31D72041200944BBE /* Shaders.metal */; };
 		7B0233A61D720B1600944BBE /* MobileNetsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0233A51D720B1600944BBE /* MobileNetsData.swift */; };
 		7B0233DA1D731CC300944BBE /* MobileNetsLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0233D91D731CC300944BBE /* MobileNetsLabels.swift */; };
@@ -19,6 +20,7 @@
 		7BD51C3B1D6DE72F00777E4F /* MobileNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD51C3A1D6DE72F00777E4F /* MobileNet.swift */; };
 		7BDD54591D742C6100B57D60 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDD54581D742C6100B57D60 /* VideoCapture.swift */; };
 		B26CAD711F935C7200A6C032 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26CAD701F935C7200A6C032 /* Core.swift */; };
+		DDDA3B04EC2E4B477B8F0BCD /* Pods_MobileNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B9F5E07708428D86773793 /* Pods_MobileNet.framework */; };
 		E63377B01EF80E9700DC9BA4 /* DepthwiseConvolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63377AF1EF80E9700DC9BA4 /* DepthwiseConvolution.swift */; };
 		E63377B21EF819F800DC9BA4 /* Runner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63377B11EF819F800DC9BA4 /* Runner.swift */; };
 		E63377B41EF81AA600DC9BA4 /* ComputeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63377B31EF81AA600DC9BA4 /* ComputeHelpers.swift */; };
@@ -30,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C5BA71F1F9381D00066A8F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7B0233A31D72041200944BBE /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		7B0233A51D720B1600944BBE /* MobileNetsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileNetsData.swift; sourceTree = "<group>"; };
 		7B0233D91D731CC300944BBE /* MobileNetsLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileNetsLabels.swift; sourceTree = "<group>"; };
@@ -43,7 +46,10 @@
 		7B24FE291D6DE49100077C27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BD51C3A1D6DE72F00777E4F /* MobileNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileNet.swift; sourceTree = "<group>"; };
 		7BDD54581D742C6100B57D60 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		84B9F5E07708428D86773793 /* Pods_MobileNet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileNet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88435312404EB954FA762D66 /* Pods-MobileNet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileNet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileNet/Pods-MobileNet.debug.xcconfig"; sourceTree = "<group>"; };
 		B26CAD701F935C7200A6C032 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		B8A5E1DF346DAE225B21A4A2 /* Pods-MobileNet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileNet.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileNet/Pods-MobileNet.release.xcconfig"; sourceTree = "<group>"; };
 		E63377AF1EF80E9700DC9BA4 /* DepthwiseConvolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepthwiseConvolution.swift; sourceTree = "<group>"; };
 		E63377B11EF819F800DC9BA4 /* Runner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Runner.swift; sourceTree = "<group>"; };
 		E63377B31EF81AA600DC9BA4 /* ComputeHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputeHelpers.swift; sourceTree = "<group>"; };
@@ -59,12 +65,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDDA3B04EC2E4B477B8F0BCD /* Pods_MobileNet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22BF437EB6F23147B6B04E5B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84B9F5E07708428D86773793 /* Pods_MobileNet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7B0233A71D720B8C00944BBE /* MobileNet */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +116,8 @@
 				E6B263011ED09D5B00EBA347 /* Default-568h@2x.png */,
 				7B24FE1C1D6DE49100077C27 /* Sources */,
 				7B24FE1B1D6DE49100077C27 /* Products */,
+				CD22BCEE64FA984661821CAD /* Pods */,
+				22BF437EB6F23147B6B04E5B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,11 +136,21 @@
 				7B24FE1F1D6DE49100077C27 /* ViewController.swift */,
 				7BDD54581D742C6100B57D60 /* VideoCapture.swift */,
 				B26CAD701F935C7200A6C032 /* Core.swift */,
+				2C5BA71F1F9381D00066A8F1 /* GoogleService-Info.plist */,
 				7B0233A71D720B8C00944BBE /* MobileNet */,
 				7B0233C81D72F36100944BBE /* Resources */,
 			);
 			name = Sources;
 			path = MobileNets;
+			sourceTree = "<group>";
+		};
+		CD22BCEE64FA984661821CAD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88435312404EB954FA762D66 /* Pods-MobileNet.debug.xcconfig */,
+				B8A5E1DF346DAE225B21A4A2 /* Pods-MobileNet.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,9 +160,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B24FE2C1D6DE49100077C27 /* Build configuration list for PBXNativeTarget "MobileNet" */;
 			buildPhases = (
+				9C18CE34B724B18CB02F29F6 /* [CP] Check Pods Manifest.lock */,
 				7B24FE161D6DE49100077C27 /* Sources */,
 				7B24FE171D6DE49100077C27 /* Frameworks */,
 				7B24FE181D6DE49100077C27 /* Resources */,
+				9DFE187DB7954774E3B7A79A /* [CP] Embed Pods Frameworks */,
+				35B5E08608EBD2A1C7B07947 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -158,7 +188,7 @@
 				TargetAttributes = {
 					7B24FE191D6DE49100077C27 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = DA8FBS4K74;
+						DevelopmentTeam = PD4KCC9VWS;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -187,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B0233FC1D7349E400944BBE /* sophie.jpg in Resources */,
+				2C5BA7201F9381D00066A8F1 /* GoogleService-Info.plist in Resources */,
 				7B24FE251D6DE49100077C27 /* Assets.xcassets in Resources */,
 				7B0233DC1D731CF300944BBE /* synset_words.txt in Resources */,
 				E63377B81EF8AFB500DC9BA4 /* MobileNet_weights.bat in Resources */,
@@ -197,6 +228,64 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		35B5E08608EBD2A1C7B07947 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MobileNet/Pods-MobileNet-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C18CE34B724B18CB02F29F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobileNet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DFE187DB7954774E3B7A79A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MobileNet/Pods-MobileNet-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MobileNet/Pods-MobileNet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7B24FE161D6DE49100077C27 /* Sources */ = {
@@ -330,9 +419,11 @@
 		};
 		7B24FE2D1D6DE49100077C27 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88435312404EB954FA762D66 /* Pods-MobileNet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DA8FBS4K74;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = PD4KCC9VWS;
 				INFOPLIST_FILE = MobileNets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -344,9 +435,11 @@
 		};
 		7B24FE2E1D6DE49100077C27 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8A5E1DF346DAE225B21A4A2 /* Pods-MobileNet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DA8FBS4K74;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = PD4KCC9VWS;
 				INFOPLIST_FILE = MobileNets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
