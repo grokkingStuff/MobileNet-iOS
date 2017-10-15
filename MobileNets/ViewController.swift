@@ -93,6 +93,8 @@ class ViewController: UIViewController, VideoCaptureDelegate {
         imageView.image = previewImage
         button.isEnabled = false
         
+        
+        
         // It takes between 0.25-0.3 seconds to perform a forward pass of the net.
         // VGGNet.predict() blocks until the GPU is ready, so to prevent the app's
         // UI from being blocked we call that method from a background thread.
