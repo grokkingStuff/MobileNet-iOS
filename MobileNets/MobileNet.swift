@@ -83,6 +83,7 @@ public class MobileNet {
     /* These MPSImage descriptors tell the network about the sizes of the data
      volumes that flow between the layers. */
     
+    
     let input_id  = MPSImageDescriptor(channelFormat: .float16, width: 224, height: 224, featureChannels: 3)
     let conv1_id  = MPSImageDescriptor(channelFormat: .float16, width: 112, height: 112, featureChannels: 32)
     let conv2_1dw_id = MPSImageDescriptor(channelFormat: .float16, width: 112, height: 112, featureChannels: 32)
@@ -481,11 +482,14 @@ public class MobileNet {
         autoreleasepool{
             let commandBuffer = commandQueue.makeCommandBuffer()
             
-            // This lets us squeeze some extra speed out of Metal.
-            MPSTemporaryImage.prefetchStorage(with: commandBuffer, imageDescriptorList: [
-                input_id, conv1_id, conv2_1dw_id, conv2_1s_id, conv2_2dw_id, conv2_2s_id, conv3_1dw_id,conv3_1s_id,
+            let list = [input_id, conv1_id, conv2_1dw_id, conv2_1s_id, conv2_2dw_id, conv2_2s_id, conv3_1dw_id,conv3_1s_id,
                 conv3_2dw_id,conv3_2s_id,conv4_1dw_id,conv4_1s_id,conv4_2dw_id,conv4_2s_id,conv5_dw_id,conv5_s_id,
-                conv5_6dw_id,conv5_6s_id,conv6_dw_id,conv6_s_id,pool6_id,output_id ])
+                conv5_6dw_id,conv5_6s_id,conv6_dw_id,conv6_s_id,pool6_id,output_id ]
+            for descriptor in list {
+                descriptor.storageMode = .private
+            }
+            // This lets us squeeze some extra speed out of Metal.
+            MPSTemporaryImage.prefetchStorage(with: commandBuffer, imageDescriptorList: list)
             
             // Scale the input image to 224x224 pixels.
             let img1 = MPSTemporaryImage(commandBuffer: commandBuffer, imageDescriptor: input_id)
