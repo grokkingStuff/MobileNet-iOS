@@ -155,7 +155,7 @@
 				TargetAttributes = {
 					7B24FE191D6DE49100077C27 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = SUMH54A6Q9;
+						DevelopmentTeam = DA8FBS4K74;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -328,11 +328,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SUMH54A6Q9;
+				DEVELOPMENT_TEAM = DA8FBS4K74;
 				INFOPLIST_FILE = MobileNets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bigwangsmash.MobileNets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grokkingStuff.MobileNets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -342,11 +342,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = SUMH54A6Q9;
+				DEVELOPMENT_TEAM = DA8FBS4K74;
 				INFOPLIST_FILE = MobileNets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bigwangsmash.MobileNets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grokkingStuff.MobileNets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
