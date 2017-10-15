@@ -30,7 +30,7 @@ class SlimMPSCNNConvolution: MPSCNNConvolution{
     /**
      A property to keep info from init time whether we will pad input image or not for use during encode call
      */
-    private var padding = true
+    private var hasPadding = true
     
     /**
      Initializes a fully connected kernel.
@@ -43,7 +43,7 @@ class SlimMPSCNNConvolution: MPSCNNConvolution{
      - neuronFilter: A neuronFilter to add at the end as activation, default is nil
      - device: The MTLDevice on which this SlimMPSCNNConvolution filter will be used
      - kernelParamsBinaryName: name of the layer to fetch kernelParameters by adding a prefix "weights_" or "bias_"
-     - padding: Bool value whether to use padding or not
+     - hasPadding: Bool value whether to use hasPadding or not
      - strideXY: Stride of the filter
      - destinationFeatureChannelOffset: FeatureChannel no. in the destination MPSImage to start writing from, helps with concat operations
      - groupNum: if grouping is used, default value is 1 meaning no groups
@@ -53,7 +53,7 @@ class SlimMPSCNNConvolution: MPSCNNConvolution{
      */
     
     
-    init(kernelWidth: UInt, kernelHeight: UInt, inputFeatureChannels: UInt, outputFeatureChannels: UInt, neuronFilter: MPSCNNNeuron? = nil, device: MTLDevice, weights: UnsafePointer<Float>,bias: UnsafePointer<Float>, padding willPad: Bool = true, strideXY: (UInt, UInt) = (1, 1), destinationFeatureChannelOffset: UInt = 0, groupNum: UInt = 1){
+    init(kernelWidth: UInt, kernelHeight: UInt, inputFeatureChannels: UInt, outputFeatureChannels: UInt, neuronFilter: MPSCNNNeuron? = nil, device: MTLDevice, weights: UnsafePointer<Float>,bias: UnsafePointer<Float>, hasPadding willPad: Bool = true, strideXY: (UInt, UInt) = (1, 1), destinationFeatureChannelOffset: UInt = 0, groupNum: UInt = 1){
         
 
         // create appropriate convolution descriptor with appropriate stride
@@ -77,19 +77,21 @@ class SlimMPSCNNConvolution: MPSCNNConvolution{
         self.destinationFeatureChannelOffset = Int(destinationFeatureChannelOffset)
         
         
-        // set padding for calculation of offset during encode call
-        padding = willPad
-        //padding = true
+        // set hasPadding for calculation of offset during encode call
+        hasPadding = willPad
+        //hasPadding = true
         self.edgeMode = .zero
         
         
         
     }
-    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     /**
      Encode a MPSCNNKernel into a command Buffer. The operation shall proceed out-of-place.
      
-     We calculate the appropriate offset as per how TensorFlow calculates its padding using input image size and stride here.
+     We calculate the appropriate offset as per how TensorFlow calculates its hasPadding using input image size and stride here.
      
      This [Link](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/ops/nn.py) has an explanation in header comments how tensorFlow pads its convolution input images.
      
@@ -100,8 +102,8 @@ class SlimMPSCNNConvolution: MPSCNNConvolution{
      */
     override func encode(commandBuffer: MTLCommandBuffer, sourceImage: MPSImage, destinationImage: MPSImage) {
         
-        // select offset according to padding being used or not
-        if(padding){
+        // select offset according to hasPadding being used or not
+        if(hasPadding){
             let pad_along_height = ((destinationImage.height - 1) * strideInPixelsY + kernelHeight - sourceImage.height)
             let pad_along_width  = ((destinationImage.width - 1) * strideInPixelsX + kernelWidth - sourceImage.width)
             let pad_top = Int(pad_along_height / 2)
@@ -168,4 +170,7 @@ class SlimMPSCNNFullyConnected: MPSCNNFullyConnected{
         
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }

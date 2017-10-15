@@ -156,7 +156,7 @@ public class MobileNet {
                                          device: device,
                                          weights:blob.conv1_s2_w,
                                          bias: blob.conv1_s2_b,
-                                         padding: true,
+                                         hasPadding: true,
                                          strideXY: (2,2)
                                          )
         conv2_1_dw = DepthwiseConvolutionKernel(device: device,
@@ -178,7 +178,7 @@ public class MobileNet {
                                            device: device,
                                            weights:blob.conv2_1_s1_w,
                                            bias: blob.conv2_1_s1_b,
-                                           padding: false,
+                                           hasPadding: false,
                                            strideXY: (1,1)
                                            )
         conv2_2_dw = DepthwiseConvolutionKernel(device: device,
@@ -199,7 +199,7 @@ public class MobileNet {
                                            device: device,
                                            weights:blob.conv2_2_s1_w,
                                            bias: blob.conv2_2_s1_b,
-                                           padding: false,
+                                           hasPadding: false,
                                            strideXY: (1,1)
         )
         
@@ -222,7 +222,7 @@ public class MobileNet {
                                            device: device,
                                            weights:blob.conv3_1_s1_w,
                                            bias: blob.conv3_1_s1_b,
-                                           padding: false,
+                                           hasPadding: false,
                                            strideXY: (1,1)
         )
         conv3_2_dw = DepthwiseConvolutionKernel(device: device,
@@ -243,7 +243,7 @@ public class MobileNet {
                                           device: device,
                                           weights:blob.conv3_2_s1_w,
                                           bias: blob.conv3_2_s1_b,
-                                          padding: false,
+                                          hasPadding: false,
                                           strideXY: (1,1)
         )
         
@@ -265,7 +265,7 @@ public class MobileNet {
                                            device: device,
                                            weights:blob.conv4_1_s1_w,
                                            bias: blob.conv4_1_s1_b,
-                                           padding: false,
+                                           hasPadding: false,
                                            strideXY: (1,1)
         )
         conv4_2_dw = DepthwiseConvolutionKernel(device: device,
@@ -286,7 +286,7 @@ public class MobileNet {
                                            device: device,
                                            weights:blob.conv4_2_s1_w,
                                            bias: blob.conv4_2_s1_b,
-                                           padding: false,
+                                           hasPadding: false,
                                            strideXY: (1,1)
         )
 
@@ -308,7 +308,7 @@ public class MobileNet {
                                            device: device,
                                            weights:blob.conv5_1_s1_w,
                                            bias: blob.conv5_1_s1_b,
-                                           padding: false,
+                                           hasPadding: false,
                                            strideXY: (1,1)
         )
         
@@ -330,7 +330,7 @@ public class MobileNet {
                                            device: device,
                                            weights:blob.conv5_2_s1_w,
                                            bias: blob.conv5_2_s1_b,
-                                           padding: false,
+                                           hasPadding: false,
                                            strideXY: (1,1)
         )
         
@@ -352,7 +352,7 @@ public class MobileNet {
                                            device: device,
                                            weights:blob.conv5_3_s1_w,
                                            bias: blob.conv5_3_s1_b,
-                                           padding: false,
+                                           hasPadding: false,
                                            strideXY: (1,1)
         )
         conv5_4_dw = DepthwiseConvolutionKernel(device: device,
@@ -373,7 +373,7 @@ public class MobileNet {
                                            device: device,
                                            weights:blob.conv5_4_s1_w,
                                            bias: blob.conv5_4_s1_b,
-                                           padding: false,
+                                           hasPadding: false,
                                            strideXY: (1,1)
         )
         conv5_5_dw = DepthwiseConvolutionKernel(device: device,
@@ -394,7 +394,7 @@ public class MobileNet {
                                            device: device,
                                            weights:blob.conv5_5_s1_w,
                                            bias: blob.conv5_5_s1_b,
-                                           padding: false,
+                                           hasPadding: false,
                                            strideXY: (1,1)
         )
         conv5_6_dw = DepthwiseConvolutionKernel(device: device,
@@ -415,7 +415,7 @@ public class MobileNet {
                                            device: device,
                                            weights:blob.conv5_6_s1_w,
                                            bias: blob.conv5_6_s1_b,
-                                           padding: false,
+                                           hasPadding: false,
                                            strideXY: (1,1)
         )
    
@@ -437,7 +437,7 @@ public class MobileNet {
                                            device: device,
                                            weights:blob.conv6_1_s1_w,
                                            bias: blob.conv6_1_s1_b,
-                                           padding: false,
+                                           hasPadding: false,
                                            strideXY: (1,1)
         )
         
@@ -451,7 +451,7 @@ public class MobileNet {
                                            device: device,
                                            weights:blob.fc7_w,
                                            bias: blob.fc7_b,
-                                           padding: false,
+                                           hasPadding: false,
                                            strideXY: (1,1)
         )
         
