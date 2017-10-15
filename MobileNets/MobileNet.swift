@@ -600,6 +600,8 @@ public class MobileNet {
         // Convert the texture from outputImage into something we can use from
         // Swift and then find the ImageNet classes with the highest probability.
         let result = self.labels.top5Labels(prediction: self.outputImage.toFloatArray())
+        print(labels[0])
+        //print(result)
         
         let endTime = CACurrentMediaTime()
         print("Elapsed time: \(endTime - startTime) sec")

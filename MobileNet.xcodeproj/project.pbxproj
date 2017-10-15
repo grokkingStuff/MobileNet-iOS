@@ -18,6 +18,7 @@
 		7B24FE251D6DE49100077C27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B24FE241D6DE49100077C27 /* Assets.xcassets */; };
 		7BD51C3B1D6DE72F00777E4F /* MobileNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD51C3A1D6DE72F00777E4F /* MobileNet.swift */; };
 		7BDD54591D742C6100B57D60 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDD54581D742C6100B57D60 /* VideoCapture.swift */; };
+		B26CAD711F935C7200A6C032 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26CAD701F935C7200A6C032 /* Core.swift */; };
 		E63377B01EF80E9700DC9BA4 /* DepthwiseConvolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63377AF1EF80E9700DC9BA4 /* DepthwiseConvolution.swift */; };
 		E63377B21EF819F800DC9BA4 /* Runner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63377B11EF819F800DC9BA4 /* Runner.swift */; };
 		E63377B41EF81AA600DC9BA4 /* ComputeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63377B31EF81AA600DC9BA4 /* ComputeHelpers.swift */; };
@@ -42,6 +43,7 @@
 		7B24FE291D6DE49100077C27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BD51C3A1D6DE72F00777E4F /* MobileNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileNet.swift; sourceTree = "<group>"; };
 		7BDD54581D742C6100B57D60 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		B26CAD701F935C7200A6C032 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		E63377AF1EF80E9700DC9BA4 /* DepthwiseConvolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepthwiseConvolution.swift; sourceTree = "<group>"; };
 		E63377B11EF819F800DC9BA4 /* Runner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Runner.swift; sourceTree = "<group>"; };
 		E63377B31EF81AA600DC9BA4 /* ComputeHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputeHelpers.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				7B24FE1D1D6DE49100077C27 /* AppDelegate.swift */,
 				7B24FE1F1D6DE49100077C27 /* ViewController.swift */,
 				7BDD54581D742C6100B57D60 /* VideoCapture.swift */,
+				B26CAD701F935C7200A6C032 /* Core.swift */,
 				7B0233A71D720B8C00944BBE /* MobileNet */,
 				7B0233C81D72F36100944BBE /* Resources */,
 			);
@@ -207,6 +210,7 @@
 				7B0233DA1D731CC300944BBE /* MobileNetsLabels.swift in Sources */,
 				7B0233A61D720B1600944BBE /* MobileNetsData.swift in Sources */,
 				7B24FE201D6DE49100077C27 /* ViewController.swift in Sources */,
+				B26CAD711F935C7200A6C032 /* Core.swift in Sources */,
 				E63377B21EF819F800DC9BA4 /* Runner.swift in Sources */,
 				E63377B41EF81AA600DC9BA4 /* ComputeHelpers.swift in Sources */,
 				7B24FE1E1D6DE49100077C27 /* AppDelegate.swift in Sources */,

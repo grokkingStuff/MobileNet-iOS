@@ -18,6 +18,9 @@ class ViewController: UIViewController, VideoCaptureDelegate {
     private var textureLoader: MTKTextureLoader!
     private var nn: MobileNet!
     
+    var buttonTapped = false     // Global variable for if the button's been tapped or not.\
+    var timer:Timer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,13 +89,14 @@ class ViewController: UIViewController, VideoCaptureDelegate {
     
     private func predict(texture: MTLTexture, previewImage: UIImage, bgr: Bool) {
         // Show a preview of the image.
+        imageView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2))
         imageView.image = previewImage
         button.isEnabled = false
         
         // It takes between 0.25-0.3 seconds to perform a forward pass of the net.
         // VGGNet.predict() blocks until the GPU is ready, so to prevent the app's
         // UI from being blocked we call that method from a background thread.
-        DispatchQueue.global().async {
+        DispatchQueue.global(qos: .userInitiated).async {
             let inputImage = self.image(from: texture)
             let prediction = self.nn.predict(image: inputImage, bgr: bgr)
             
@@ -142,10 +146,24 @@ class ViewController: UIViewController, VideoCaptureDelegate {
     }
     
     // MARK: - Video capture
-    
     @IBAction func buttonTapped(_ sender: UIButton) {
+        timer?.invalidate()
+        buttonTapped = !buttonTapped
+        if buttonTapped
+        {
+            timer = Timer.scheduledTimer(timeInterval: 0.1,
+                                             target: self,
+                                             selector: #selector(ViewController.update),
+                                             userInfo: nil,
+                                             repeats: true)
+        }
+    }
+    
+    @objc func update() {
         videoCapture.captureFrame()
     }
+
+    
     
     func didCapture(texture: MTLTexture?, previewImage: UIImage?) {
         if let texture = texture, let previewImage = previewImage {

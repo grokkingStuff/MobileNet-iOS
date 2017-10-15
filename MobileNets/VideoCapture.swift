@@ -49,7 +49,7 @@ public class VideoCapture: NSObject, AVCapturePhotoCaptureDelegate {
 
     if let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession) {
       previewLayer.videoGravity = AVLayerVideoGravityResizeAspect
-      previewLayer.connection?.videoOrientation = .landscapeRight
+      previewLayer.connection?.videoOrientation = .portrait
       self.previewLayer = previewLayer
     }
 
@@ -73,8 +73,8 @@ public class VideoCapture: NSObject, AVCapturePhotoCaptureDelegate {
 
     settings.previewPhotoFormat = [
       kCVPixelBufferPixelFormatTypeKey as String: settings.__availablePreviewPhotoPixelFormatTypes[0],
-      kCVPixelBufferWidthKey as String: 480,
-      kCVPixelBufferHeightKey as String: 360,
+      kCVPixelBufferWidthKey as String: 375,
+      kCVPixelBufferHeightKey as String: 375,
     ]
 
     photoOutput?.capturePhoto(with: settings, delegate: self)
@@ -87,41 +87,51 @@ public class VideoCapture: NSObject, AVCapturePhotoCaptureDelegate {
                       bracketSettings: AVCaptureBracketedStillImageSettings?,
                       error: Error?) {
 
-    var imageTexture: MTLTexture?
-    var previewImage: UIImage?
-
-    // Convert the photo to a Metal texture.
-    if error == nil, let textureCache = textureCache,
-       let sampleBuffer = photoSampleBuffer,
-       let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
-
-      let width = CVPixelBufferGetWidth(imageBuffer)
-      let height = CVPixelBufferGetHeight(imageBuffer)
-
-      var texture: CVMetalTexture?
-      CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, textureCache,
-          imageBuffer, nil, .bgra8Unorm, width, height, 0, &texture)
-
-      if let texture = texture {
-        imageTexture = CVMetalTextureGetTexture(texture)
-      }
+    DispatchQueue.global(qos: .userInitiated).async {
+        var imageTexture: MTLTexture?
+        var previewImage: UIImage?
+        
+        // Convert the photo to a Metal texture.
+        if error == nil, let textureCache = self.textureCache,
+            let sampleBuffer = photoSampleBuffer,
+            let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
+            
+            let width = CVPixelBufferGetWidth(imageBuffer)
+            let height = CVPixelBufferGetHeight(imageBuffer)
+            
+            var texture: CVMetalTexture?
+            CVMetalTextureCacheCreateTextureFromImage(kCFAllocatorDefault, textureCache,
+                                                      imageBuffer, nil, .bgra8Unorm, width, height, 0, &texture)
+            
+            if let texture = texture {
+                imageTexture = CVMetalTextureGetTexture(texture)
+            }
+        }
+        
+        
+        
+        
+        // DUMMY STUFF
+        // Convert the preview to a UIImage and show it on the screen.
+        
+        if error == nil, let sampleBuffer = previewPhotoSampleBuffer,
+            let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
+            
+            let width = CVPixelBufferGetWidth(imageBuffer)
+            let height = CVPixelBufferGetHeight(imageBuffer)
+            let rect = CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height))
+            
+            let ciImage = CIImage(cvPixelBuffer: imageBuffer)
+            let ciContext = CIContext(options: nil)
+            if let cgImage = ciContext.createCGImage(ciImage, from: rect) {
+                previewImage = UIImage(cgImage: cgImage)/*.imageRotatedByDegrees(deg: 90.0)*/
+            }
+        }
+        if let previewImage = previewImage {
+            DispatchQueue.main.async {
+                self.delegate?.didCapture(texture: imageTexture, previewImage: previewImage)
+            }
+        }
     }
-
-    // Convert the preview to a UIImage and show it on the screen.
-    if error == nil, let sampleBuffer = previewPhotoSampleBuffer,
-       let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) {
-
-      let width = CVPixelBufferGetWidth(imageBuffer)
-      let height = CVPixelBufferGetHeight(imageBuffer)
-      let rect = CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height))
-
-      let ciImage = CIImage(cvPixelBuffer: imageBuffer)
-      let ciContext = CIContext(options: nil)
-      if let cgImage = ciContext.createCGImage(ciImage, from: rect) {
-        previewImage = UIImage(cgImage: cgImage)
-      }
-    }
-
-    delegate?.didCapture(texture: imageTexture, previewImage: previewImage)
   }
 }
